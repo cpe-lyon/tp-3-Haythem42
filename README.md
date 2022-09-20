@@ -23,4 +23,19 @@ BELHADJ MANSOUR Haythem
 
 9. Nous ne pouvons pas ouvrir de session en tant qu'Alice car le compte n'a pas de mot de passe, il est donc inactif.
 
-10. 
+10. Pour activer le compte d'un utilisateur, il faut lui définir son mot de passe avec la commande ```sudo passwd nom_utilisateur```. On pourra ainsi donner le "nouveau" mot de passe pour le compte utilisateur. Pour alice, nous utilisons la commande ```sudo passwd alice```. On doit taper deux fois le nouveau mot de passe et un message devrait appaaître : "passwd : password updated successfully" indiquant que le mot de passe a bien été enregistré. On peut maintenant se connecter avec le compte d'alice avec la commande ```su alice```et en tapant le nouveau mot de passe. On se retrouve ainsi sur son compte.
+
+11. Une fois connecté sur son compte, il nous suffit d'utiliser la commande ```id``` pour obtenir l'uid (=1002) et le gid (=1002) d'alice. En dehors de son compte, on peut utiliser la commande ```id alice``` pour trouver ces informations.
+
+12. En sachant que l'uid est placé à la troisième position dans le fichier /etc/passwd, on peut simplement utiliser la commande ```grep 1003 /etc/passwd```. Ici l'utilisateur en question est bob.
+
+13. Alice et Bob faisant parti du groupe dev, on peut se référer au gid trouvé en tapant la commande ```id alice``` ou ```ìd``` (si on est connecté en tant qu'alice). L'id du groupe dev est 1002.
+Autre possibilité plus simple : utiliser la commande ```grep dev: /etc/group```, on remarque bien que l'id du group est 1002.
+
+14. Le groupe **dev** a l'id 1002. (on emploie la même méthode que précédemment).
+
+15.
+
+16.
+
+17. L'intérpréteur de commande de l'utilisateur **root** est le bash.
