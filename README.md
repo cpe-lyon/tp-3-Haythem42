@@ -34,8 +34,22 @@ Autre possibilité plus simple : utiliser la commande ```grep dev: /etc/group```
 
 14. Le groupe **dev** a l'id 1002. (on emploie la même méthode que précédemment).
 
-15.
+15. Pour retirer un utilisateur d'un groupe, on tape la commande ```gpasswd -d utilisateur groupe```. Ici, on souhaite supprimer l'utilisateur **charlie** du groupe **infra**. On tape donc la commande ```gpasswd -d charlie infra```. D'après le système, **charlie** a bien été retiré du groupe. On peut vérifier en tapant la commande ```grep infra /etc/group```, on remarque qu'il ne fait plus partie. Cependant, lorsqu'on tape ```id charlie```, on voit que son groupe primaire reste l'**infra**. Nous ne sommes pas sensé pouvoir supprimer un utilisateur de son groupe (s'il n'en a qu'un).
 
-16.
+16. Pour modifier les informations de compte de **dave** (se trouvant dans /etc/shadow), on utilise ces commandes :
+ - Expiration le 1e juin 2021 : usermod --expiredate 2021-06-01 dave
+ - Changer le mot de passe avant 90 jours : ```passwd --maxdays 90 dave```
+ - Attendre 5 jours pour modifier un mot de passe : ```passwd --mindays 5 dave```
+ - Avertissement 14 jours avant l'expiration du mot de passe : ```passwd --warndays 14 dave```
+ - Blocage du compte 30 jours après expiration du mot de passe : ```passwd --inactive 30 dave```
 
-17. L'intérpréteur de commande de l'utilisateur **root** est le bash.
+17. L'intérpréteur de commande de l'utilisateur **root** est le bash. La commande pour trouver cette information est ```grep root /etc/passwd```.
+
+18. On peut retrouver le compte nobody avec la commande ```grep nobody /etc/passwd```. *nobody* est le nom conventionnel d'un compte utilisateur à qui aucun fichier n'appartient. Il n'est dans aucun groupe qui possède des privilèges et a dont les seules possibilités sont celles que tous les "autres utilisateurs" ont (il aura les droit de **o**).
+
+19. La commande **sudo** conserve le mot de passe en mémoire pendant 15 minutes.
+La commande **sudo -k** permet de forcer **sudo** à oublier le mot de passe.
+
+
+# Exercice 2
+
