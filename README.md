@@ -81,6 +81,6 @@ La commande ```sudo -k``` permet de forcer **sudo** à oublier le mot de passe.
  - ```chmod u=rx,g=wx,o=r fic``` -> ```chmod 534 fic```
  - ```chmod uo+w,g-rx fic``` -> ```chmod 602 fic```
  - ```chmod 653 fic``` -> ```chmod u-x,g+r,o+w fic```
- - chmod u+x,g=w,o-r fic``` -> ```chmod 520 fic```
+ - ```chmod u+x,g=w,o-r fic``` -> ```chmod 520 fic```
 
 14 - En tapant la commande ```ll /etc/passwd```, on remarque que seul les droits d'écriture et de lecture sont accordés à l'utilisateur. Les membres du groupes ont, eux, le droit de lecture. De plus, le proprétaire est le root. Seul le root est amené à devoir modifier le programme pour éviter qu'un membre ne le modifie. Il est donc normal que seul le propriétaire ai les droits d'écriture. Les autres n'ont pas de droits sur le programme car celui-ci contient les informations concernant les utilisateurs de la machine.
